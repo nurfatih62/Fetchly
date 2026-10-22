@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Konfigurasi lokal
+.env
+
+# File sementara aplikasi
+temp/
+*.part
+*.ytdl
+
+# Editor dan sistem
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Test
+.pytest_cache/
+.coverage

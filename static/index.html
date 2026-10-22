@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Fetchly, pengunduh video YouTube dan TikTok yang berjalan sepenuhnya di komputermu. Gratis, tanpa akun, tanpa iklan.">
+  <title>Fetchly — simpan video YouTube &amp; TikTok</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#konten">Langsung ke konten</a>
+
+  <div class="shell">
+    <header class="site-header">
+      <a class="brand" href="/">Fetchly<span class="brand-dot" aria-hidden="true">.</span></a>
+      <p class="head-note">Berjalan di komputermu</p>
+    </header>
+
+    <div id="ffmpeg-banner" class="banner" role="status" hidden>
+      <p><strong>ffmpeg belum terpasang.</strong> Unduhan MP3 dan penggabungan MP4 membutuhkannya. Jalankan <code>winget install Gyan.FFmpeg</code>, lalu buka ulang terminal.</p>
+    </div>
+
+    <main id="konten">
+      <section class="intro" aria-labelledby="judul">
+        <p class="eyebrow">Pengunduh video lokal</p>
+        <h1 id="judul">Tempel tautan.<br><em>Simpan videonya.</em></h1>
+        <p class="lede">Unduh video YouTube atau TikTok sebagai MP4, atau ambil audionya sebagai MP3. Semua proses berjalan di komputermu, tanpa akun dan tanpa iklan.</p>
+      </section>
+
+      <section class="lookup" aria-label="Cek tautan video">
+        <form id="lookup-form" novalidate>
+          <label class="field-label" for="url-input">Tautan video</label>
+          <div class="url-field">
+            <input
+              id="url-input"
+              name="url"
+              type="url"
+              inputmode="url"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              maxlength="2048"
+              placeholder="https://www.youtube.com/watch?v=..."
+              aria-describedby="lookup-note"
+            >
+            <div class="url-tools">
+              <button type="button" id="paste-button" class="text-button">Tempel</button>
+              <button type="button" id="clear-button" class="text-button">Hapus</button>
+            </div>
+          </div>
+          <p id="form-error" class="form-error" role="alert" hidden></p>
+          <div class="lookup-actions">
+            <button type="submit" id="check-button" class="button button-primary">Cek video</button>
+            <p id="lookup-note" class="lookup-note">YouTube dan TikTok. Tautan hanya diproses di perangkat ini.</p>
+          </div>
+        </form>
+      </section>
+
+      <section id="preview" class="preview" aria-labelledby="preview-title" hidden>
+        <div class="preview-grid">
+          <figure class="preview-media">
+            <div class="thumb-fallback" aria-hidden="true">Pratinjau video</div>
+            <img id="preview-thumb" alt="" width="640" height="360" referrerpolicy="no-referrer" loading="lazy" hidden>
+            <figcaption id="platform-badge" class="platform-badge">YouTube</figcaption>
+          </figure>
+
+          <div class="preview-body">
+            <h2 id="preview-title">Judul video</h2>
+            <dl class="meta">
+              <div>
+                <dt>Kanal</dt>
+                <dd id="preview-uploader">—</dd>
+              </div>
+              <div>
+                <dt>Durasi</dt>
+                <dd id="preview-duration">—</dd>
+              </div>
+            </dl>
+
+            <form id="download-form">
+              <fieldset class="formats">
+                <legend>Format</legend>
+                <div class="format-options">
+                  <label class="format-option">
+                    <input type="radio" name="format" value="mp4" checked>
+                    <span class="format-label">MP4 <small>video</small></span>
+                  </label>
+                  <label class="format-option">
+                    <input type="radio" name="format" value="mp3">
+                    <span class="format-label">MP3 <small>audio · 192 kbps</small></span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <div id="quality-row" class="quality-row">
+                <label for="quality">Kualitas</label>
+                <select id="quality" name="quality">
+                  <option value="best">Terbaik</option>
+                </select>
+              </div>
+
+              <div class="download-actions">
+                <button type="submit" id="download-button" class="button button-primary">Unduh</button>
+                <p id="download-status" class="download-status" aria-live="polite"></p>
+              </div>
+              <p id="download-error" class="form-error" role="alert" hidden></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="disclaimer">Gunakan hanya untuk video yang kamu miliki haknya, video berlisensi yang boleh diunduh (misalnya Creative Commons), atau video yang diizinkan pemiliknya. Patuhi Ketentuan Layanan YouTube dan TikTok serta hukum hak cipta yang berlaku.</p>
+      <div class="footer-meta">
+        <a href="https://github.com/nurfatih62/Fetchly" target="_blank" rel="noopener noreferrer">Kode sumber di GitHub</a>
+        <span>Lisensi MIT · tanpa iklan · tanpa pelacakan</span>
+        <span>Fetchly 1.0.0</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
